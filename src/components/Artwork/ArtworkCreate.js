@@ -49,7 +49,6 @@ const ArtworkCreate = (props) => {
 
 		fetch(url, {
             method: 'POST',
-            mode: 'no-cors',
 			headers: {
                 'Content-type': 'application/json; charset=utf-8',
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
