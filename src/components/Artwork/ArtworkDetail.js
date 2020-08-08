@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { APIURL } from '../../config';
+// import { APIURL } from '../../config';
 import { Link, Route, Redirect } from 'react-router-dom';
 import { createHashHistory } from 'history';
 import ArtworkCategoryNav from './ArtworkCategoryNav';
@@ -29,7 +29,7 @@ const ArtworkDetail = (props) => {
 
 	// make a fetch to get by ID
 	async function fetchMyApi() {
-		const url = `${APIURL}/api/work/${artworkId}`;
+		const url = `/api/work/${artworkId}`;
 		await fetch(url, {
 			method: 'GET',
 		})
@@ -58,7 +58,7 @@ const ArtworkDetail = (props) => {
 		);
 		// make user have to confirm before deleting
 		if (confirm === 'confirm') {
-			const url = `${APIURL}/api/work/${artworkId}`;
+			const url = `/api/work/${artworkId}`;
 			fetch(url, {
 				method: 'DELETE',
 				headers: {

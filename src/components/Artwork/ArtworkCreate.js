@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Route, Redirect } from 'react-router-dom';
-import { APIURL } from '../../config';
+// import { APIURL } from '../../config';
 
 import ArtworkCategoryNav from './ArtworkCategoryNav';
 import ArtworkForm from './ArtworkForm';
@@ -45,7 +45,7 @@ const ArtworkCreate = (props) => {
 		// make a POST request to submit a new artwork, save the new id to use for <Redirect /> later
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const url = `${APIURL}/api/work`;
+		const url = `/api/work`;
 
 		fetch(url, {
             method: 'POST',

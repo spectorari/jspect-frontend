@@ -1,6 +1,6 @@
 import React, { useState, useHistory, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { APIURL } from './config';
+// import { APIURL } from './config';
 
 //misc. components
 import NavBar from './components/NavBar/NavBar';
@@ -43,7 +43,7 @@ const App = () => {
 		// eslint-disable-next-line
 	}, []);
 	async function fetchMyApi() {
-		await fetch(`${APIURL}/api/work`, {
+		await fetch(`/api/work`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',

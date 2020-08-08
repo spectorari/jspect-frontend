@@ -1,5 +1,5 @@
 import React, { useState, setState } from 'react';
-import { APIURL } from '../../config';
+// import { APIURL } from '../../config';
 import { Redirect, Link } from 'react-router-dom';
 import { MDBBtn, MDBInput } from 'mdbreact';
 
@@ -62,7 +62,7 @@ const SignUp = (props) => {
 	};
 
 	const handleSubmit = (e) => {
-		fetch(`${APIURL}/api/user/register`, {
+		fetch(`/api/user/register`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

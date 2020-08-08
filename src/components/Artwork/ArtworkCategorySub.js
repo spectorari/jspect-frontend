@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Route } from 'react-router-dom';
-import { APIURL } from '../../config';
+// import { APIURL } from '../../config';
 import ArtworkCategoryNav from './ArtworkCategoryNav';
 
 const ArtworkSubcategory = (props) => {
@@ -14,7 +14,7 @@ const ArtworkSubcategory = (props) => {
 	}, []);
 
 	async function fetchMyApi() {
-		await fetch(`${APIURL}/api/work`, {
+		await fetch(`/api/work`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',

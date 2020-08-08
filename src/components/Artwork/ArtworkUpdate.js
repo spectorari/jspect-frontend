@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { APIURL } from '../../config';
+// import { APIURL } from '../../config';
 
 import ArtworkCategoryNav from './ArtworkCategoryNav';
 import ArtworkForm from './ArtworkForm';
@@ -26,7 +26,7 @@ const ArtworkUpdate = (props) => {
 	}, []);
 
 	async function fetchMyApi() {
-		const url = `${APIURL}/api/work/${artworkId}`;
+		const url = `/api/work/${artworkId}`;
 		await fetch(url, {
 			method: 'GET',
 		})
@@ -63,7 +63,7 @@ const ArtworkUpdate = (props) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const url = `${APIURL}/api/work/${artworkId}`;
+		const url = `/api/work/${artworkId}`;
 
 		fetch(url, {
             method: 'PUT',

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { APIURL } from '../../config';
+// import { APIURL } from '../../config';
 import { Link, Route } from 'react-router-dom';
 import ArtworkCategoryNav from './ArtworkCategoryNav';
 import { MDBDataTableV5 } from 'mdbreact';
@@ -17,7 +17,7 @@ const ArtworkAll = (props) => {
 	}, []);
 
 	async function fetchMyApi() {
-		await fetch(`${APIURL}/api/work`, {
+		await fetch(`/api/work`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
