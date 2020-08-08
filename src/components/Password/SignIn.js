@@ -1,5 +1,5 @@
 import React, { useState, setState } from 'react';
-import { APIURL } from '../../config';
+// import { APIURL } from '../../config';
 import { Redirect, Link } from 'react-router-dom';
 
 import { MDBBtn, MDBInput } from 'mdbreact';
@@ -23,7 +23,7 @@ const SignIn = (props) => {
 	const signIn = (e) => {
 		e.preventDefault();
 		setSubmit(true);
-		fetch(`${APIURL}/login`, {
+		fetch(`/login`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json; charset=utf-8',
