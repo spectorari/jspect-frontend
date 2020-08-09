@@ -87,7 +87,7 @@ const ArtworkDetail = (props) => {
 		);
 		// make user have to confirm before deleting
 		if (confirm === 'confirm') {
-			const url = `api/work/${artworkId}`;
+			const url = `/api/work/${artworkId}`;
 			fetch(url, {
 				method: 'DELETE',
 				headers: {
