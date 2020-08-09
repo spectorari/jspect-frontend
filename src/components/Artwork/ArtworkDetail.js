@@ -129,12 +129,20 @@ const ArtworkDetail = (props) => {
 	};
 
 	console.log(
+		// get the id of the current work
 		thisArtworkId,
+
+		// get the array of all artwork Ids
 		artworkIds,
-		// get the id of the current work from the array of artworkIds
-		//artworkIds at the index of the index of artworkIds
-		artworkIds[artworkIds.indexOf(thisArtworkId)],
+
+		// get the index of this artwork in the array of all artworks
 		artworkIds.indexOf(thisArtworkId),
+
+		// get the id of the current work from the array of artworkIds
+		//artworkIds at the index of the index of artworkIds at which the value is the current Id. the value at this index should be the same as thisArtworkId
+		artworkIds[artworkIds.indexOf(thisArtworkId)],
+
+		// the length of artworkIds will be compared with the index of the current artwork to determine if there should be a back/forward button (i.e. first item does not get a previous button; last item does not get a next button)
 		artworkIds.length
 	);
 
