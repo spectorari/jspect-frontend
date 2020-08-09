@@ -24,7 +24,6 @@ import About from './components/About/About';
 const App = () => {
 	const [error, setError] = useState(false);
 	const [token, setToken] = useState('');
-	const [artworkAllLength, setArtworkAllLength] = useState();
 
 	// when a user signs out, the state of token and the token in localStorage both need to be cleared on sign out
 	async function handleSignOut() {
@@ -35,28 +34,6 @@ const App = () => {
 	// some components should be rendered with the viewport starting at the top
 	function scrollUp() {
 		window.scrollTo(0, 0);
-	}
-
-	// fetch the artwork for the artwork database length-- this gets passed down to ArtworkDetail for the range of navigation controls
-	useEffect(() => {
-		fetchMyApi();
-		// eslint-disable-next-line
-	}, []);
-	async function fetchMyApi() {
-		await fetch(`/api/work`, {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-				Accept: 'application/json',
-			},
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				setArtworkAllLength(data.length);
-			})
-			.catch(() => {
-				setError(true);
-			});
 	}
 
 	// converts text from data to Title Case
@@ -123,7 +100,6 @@ const App = () => {
 									scrollUp={scrollUp}
 									toTitleCase={toTitleCase}
 									token={token}
-									artworkAllLength={artworkAllLength}
 								/>
 							);
 						}}
