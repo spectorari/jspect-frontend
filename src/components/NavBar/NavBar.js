@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
 	MDBNavbar,
 	MDBNavbarBrand,
@@ -46,29 +47,39 @@ const Navbar = (props) => {
 								<span className='mr-2'>Artwork</span>
 							</MDBDropdownToggle>
 							<MDBDropdownMenu>
-								<MDBDropdownItem href='/artwork-category/portraits'>
-									Portraits
-								</MDBDropdownItem>
-
-								<MDBDropdownItem href='/artwork-category/paintings'>
-									Paintings
-								</MDBDropdownItem>
-
-								<MDBDropdownItem href='/artwork-category/silverpoint'>
-									Silverpoint
-								</MDBDropdownItem>
-
-								<MDBDropdownItem href='/artwork-category/works_on_paper'>
-									Works on Paper
-								</MDBDropdownItem>
-
+								<MDBDropdownItem>
+									<Link id='dropdown-links' to='/artwork-category/portraits'>
+										Portraits
+									</Link>
+								</MDBDropdownItem>{' '}
+								<MDBDropdownItem>
+									<Link id='dropdown-links' to='/artwork-category/paintings'>
+										Paintings
+									</Link>
+								</MDBDropdownItem>{' '}
+								<MDBDropdownItem>
+									<Link id='dropdown-links' to='/artwork-category/silverpoint'>
+										Silverpoint
+									</Link>
+								</MDBDropdownItem>{' '}
+								<MDBDropdownItem>
+									<Link
+										id='dropdown-links'
+										to='/artwork-category/works_on_paper'>
+										Works on Paper
+									</Link>
+								</MDBDropdownItem>{' '}
 								<div className='nav-second-category'>
-									<MDBDropdownItem href='/artwork-all'>
-										All Works
-									</MDBDropdownItem>
+									<MDBDropdownItem>
+										<Link id='dropdown-links' to='/artwork-all'>
+											All Works
+										</Link>
+									</MDBDropdownItem>{' '}
 									{props.token || localStorage.getItem('token') ? (
-										<MDBDropdownItem href='/artwork-create'>
-											Add (+)
+										<MDBDropdownItem>
+											<Link id='dropdown-links' to='/artwork-create'>
+												Add (+)
+											</Link>
 										</MDBDropdownItem>
 									) : null}{' '}
 								</div>

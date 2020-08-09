@@ -22,6 +22,7 @@ const Dropzone = (props) => {
 	const [validFiles, setValidFiles] = useState([]);
 	const [unsupportedFiles, setUnsupportedFiles] = useState([]);
 	const [errorMessage, setErrorMessage] = useState('');
+	const [submitted, setSubmitted] = useState(false);
 
 	useEffect(() => {
 		let filteredArr = selectedFiles.reduce((acc, current) => {
@@ -166,13 +167,17 @@ const Dropzone = (props) => {
 						progressRef.current.style.width = `${uploadPercentage}%`;
 
 						if (uploadPercentage === 100) {
-							uploadRef.current.innerHTML = 'File(s) Uploaded';
+							uploadRef.current.innerHTML =
+								'File Uploaded! Please click outside this window to exit.';
 							validFiles.length = 0;
 							setValidFiles([...validFiles]);
 							setSelectedFiles([...validFiles]);
 							setUnsupportedFiles([...validFiles]);
 						}
 					},
+				})
+				.then(() => {
+					setSubmitted(true);
 				})
 				.catch(() => {
 					uploadRef.current.innerHTML = `<span class="error">Error Uploading File(s)</span>`;
@@ -192,14 +197,10 @@ const Dropzone = (props) => {
 					<button className='file-upload-btn' onClick={(e) => uploadFiles(e)}>
 						Upload Files
 					</button>
-				) : (
-					null
-				)}
+				) : null}
 				{unsupportedFiles.length ? (
 					<p>Please remove all unsupported files.</p>
-				) : (
-					null
-				)}
+				) : null}
 				<div
 					className='drop-container'
 					onDragOver={dragOver}
@@ -209,7 +210,7 @@ const Dropzone = (props) => {
 					onClick={fileInputClicked}>
 					<div className='drop-message'>
 						<div className='upload-icon'></div>
-						Drag & Drop files here or click to select file
+						Drag & Drop file here or click to select file
 					</div>
 					<input
 						ref={fileInputRef}
@@ -220,6 +221,11 @@ const Dropzone = (props) => {
 					/>
 				</div>
 				<div className='file-display-container'>
+					{submitted && (
+						<span className='success-message'>
+							Image Submitted Successfully!
+						</span>
+					)}
 					{validFiles.map((data, i) => (
 						<div className='file-status-bar' key={i}>
 							<div

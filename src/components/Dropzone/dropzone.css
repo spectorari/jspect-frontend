@@ -5,20 +5,19 @@
 .file-upload-btn {
 	color: white;
 	outline: none;
-    background-color: #4aa1f3e5;
+	background-color: #4aa1f3c4;
 	font-weight: bold;
+	width: 20vw;
 	padding: 8px 15px;
-    border-radius: 1.5ch;
-    /* position: absolute; */
-    padding: .5rem;
-    letter-spacing: .2vmin;
-    text-align: center;
+	border-radius: 1ch;
+	padding: 0.5rem;
+	letter-spacing: 0.2vmin;
+	text-align: center;
 }
-
-.container {
-	/* transform: translateY(-100%); */
-	/* max-width: 50vw; */
-	/* display: grid; */
+.file-upload-btn:hover {
+	background-color: rgba(50, 133, 241, 0.795);
+	color: white;
+	transition: 0.5s;
 }
 
 .container p {
@@ -30,11 +29,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 2rem;
-	/* 
-    max-width: 800px;
-    max-height: 200px; */
-	border: 4px dashed #4aa1f3bd;
+	padding: 1rem;
+	border-radius: 2ch;
+	border: 4px dashed #aec2d4e5;
 }
 
 .upload-icon {
@@ -46,18 +43,20 @@
 	margin: 0 auto;
 	padding-top: 30px;
 	opacity: 0.5;
-	transition: .5s;
-}
-
-.upload-icon:hover {
-	opacity: 1;
+	transition: 0.5s;
 }
 
 .drop-message {
 	text-align: center;
-	color: #4aa1f3;
-	font-family: 'ubunutu';
+	color: #1569b8d0;
+	font-family: 'arial';
+	font-weight: bold;
 	font-size: 1.25rem;
+	text-transform: capitalize;
+}
+
+.upload-icon:hover {
+	opacity: 1;
 }
 
 .file-progressBar {
@@ -270,21 +269,22 @@
 
 .progress-container {
 	background: white;
-	width: 60vw;
-	height: 20vh;
+	width: 75vw;
+	height: 30vh;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-    overflow: hidden;
-    /* display: none; */
+	overflow: hidden;
+	/* display: none; */
 }
 
 .progress-container span {
 	display: flex;
 	justify-content: center;
 	padding-top: 20px;
-	font-size: 20px;
+	text-align: center;
+	font-size: 2.5vmin;
 }
 
 .progress {
@@ -294,18 +294,23 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: #efefef;
-	height: 20px;
+	height: 2rem;
 	border-radius: 5px;
 }
 
 .progress-bar {
-	position: absolute;
 	background-color: #4aa1f3;
 	height: 20px;
 	border-radius: 5px;
 	text-align: center;
 	color: white;
 	font-weight: bold;
+}
+
+.success-message {
+	color: rgb(17, 187, 17);
+	font-weight: 400;
+	font-size: 1.25rem;
 }
 
 .error {

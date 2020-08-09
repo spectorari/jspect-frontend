@@ -160,7 +160,7 @@ const App = () => {
 						exact
 						path='/signin'
 						render={(props) => {
-							return <SignIn setToken={setToken} />;
+							return <SignIn setToken={setToken} scrollUp={scrollUp} />;
 						}}
 					/>{' '}
 				</Switch>

@@ -18,37 +18,64 @@ const ArtworkDetail = (props) => {
 	// for displaying the both artwork.artworkCategory and artwork.artworkSubcategory in the same line
 	const [fullCategory, setFullCategory] = useState('');
 
+	// set artwork Ids because to handle routing between non-consecutive IDs
+	const [artworkIds, setArtworkIds] = useState([]);
+
 	// routerProps from react-router-dom
 	const artworkId = props.match.params.id;
+	const [thisArtworkId, setThisArtworkId] = useState(null);
 
 	useEffect(() => {
 		props.scrollUp();
-		fetchMyApi();
+		getThisArtwork();
+		getArtworkIds();
 		// eslint-disable-next-line
 	}, []);
 
 	// make a fetch to get by ID
-	async function fetchMyApi() {
+	async function getThisArtwork() {
 		const url = `/api/work/${artworkId}`;
 		await fetch(url, {
 			method: 'GET',
 		})
 			.then((response) => response.json())
 			.then((data) => {
+				console.log(data);
 				setArtwork(data);
 				setFullCategory(
 					data.artworkSubcategory === '' || data.artworkSubcategory === null
 						? props.toTitleCase(data.artworkCategory)
 						: `${props.toTitleCase(data.artworkCategory)}: ${props.toTitleCase(
 								data.artworkSubcategory
-						  )}`
+						)}`
+				);
+				setThisArtworkId(data.id);
+			})
+			.catch(() => {
+				setError(true);
+			});
+	}
+
+	async function getArtworkIds() {
+		await fetch(`/api/work`, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+			},
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				setArtworkIds(
+					data.map((item) => {
+						return item.id;
+					})
 				);
 			})
 			.catch(() => {
 				setError(true);
 			});
 	}
-	console.log('Current Work: ', artwork);
 
 	// make a fetch to delete by ID
 	const onDeleteArtwork = (event) => {
@@ -58,16 +85,16 @@ const ArtworkDetail = (props) => {
 		);
 		// make user have to confirm before deleting
 		if (confirm === 'confirm') {
-			const url = `/api/work/${artworkId}`;
+			const url = `api/work/${artworkId}`;
 			fetch(url, {
 				method: 'DELETE',
 				headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${localStorage.getItem('token')}`,
 					Accept: 'application/json',
 				},
 			})
-				.then((res) => {
+				.then(() => {
 					setDeleted(true);
 				})
 				.catch(console.error);
@@ -81,7 +108,10 @@ const ArtworkDetail = (props) => {
 
 	// refresh the page to render the new artwork on artwork-back and artwork-forward buttons
 	const artworkRefresh = () => {
-		fetchMyApi()
+		getArtworkIds()
+			.then(() => {
+				getThisArtwork();
+			})
 			.then(() => {
 				window.location.reload();
 			})
@@ -95,6 +125,12 @@ const ArtworkDetail = (props) => {
 		history.goBack();
 		artworkRefresh();
 	};
+
+	console.log(
+		thisArtworkId,
+		artworkIds,
+		artworkIds[artworkIds.indexOf(thisArtworkId)]
+	);
 
 	return (
 		<div className='artwork-detail-container-container'>
@@ -119,14 +155,18 @@ const ArtworkDetail = (props) => {
 						</h4>
 						{artworkId > 1 ? (
 							<Link
-								to={`/artwork/${parseInt(artworkId) - 1}`}
+								to={`/artwork/${
+									artworkIds[artworkIds.indexOf(thisArtworkId) - 1]
+								}`}
 								onClick={artworkRefresh}>
 								<FaArrowLeft className='detail-pointer-arrow' />
 							</Link>
 						) : null}{' '}
 						{artworkId < props.artworkAllLength ? (
 							<Link
-								to={`/artwork/${parseInt(artworkId) + 1}`}
+								to={`/artwork/${
+									artworkIds[artworkIds.indexOf(thisArtworkId) + 1]
+								}`}
 								onClick={artworkRefresh}>
 								<FaArrowRight className='detail-pointer-arrow' />
 							</Link>

@@ -1,4 +1,4 @@
-import React, { useState, setState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { APIURL } from '../../config';
 import { Redirect, Link } from 'react-router-dom';
 
@@ -13,6 +13,12 @@ const SignIn = (props) => {
 	const [redirectToReferrer, setRedirectToReferrer] = useState(false);
 	const [signInError, setSignInError] = useState(false);
 	const [submit, setSubmit] = useState(false);
+
+	useEffect(() => {
+		props.scrollUp();
+		// eslint-disable-next-line
+	}, []);
+
 
 	const handleChange = (e) => {
 		e.persist();

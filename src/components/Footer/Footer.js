@@ -9,10 +9,15 @@ const FooterPage = () => {
 					<MDBCol md='6'>
 						<h4
 							className='title'
-							style={{ textAlign: 'center', fontFamily: 'ubuntu' }}>
+							id='footer-title'
+							// style={{ textAlign: 'center', fontFamily: 'ubuntu' }}
+							>
 							Joel Spector
 						</h4>
-						<h6 className='title' style={{ textAlign: 'center' }}>
+						<h6 
+						id='footer-title' 
+						// style={{ textAlign: 'center' }}
+						>
 							1949 - 2016
 						</h6>
 					</MDBCol>
@@ -24,7 +29,7 @@ const FooterPage = () => {
 								width: '200px',
 								borderRadius: '25px',
 								marginBottom: '1rem',
-								textAlign: 'center',
+								textAlign: 'right',
 							}}
 						/>
 					</MDBCol>
