@@ -86,12 +86,12 @@ const ArtworkForm = (props) => {
 			<button className='btn btn-blue' type='submit'>
 				Submit
 			</button>
-			<button
+			{/* <button
 				className='btn btn-dark'
 				id='cancel-button'
 				onClick={history.goBack}>
 				Cancel and Go Back
-			</button>
+			</button> */}
 		</>
 	);
 };

@@ -7,7 +7,6 @@ const About = () => {
 	const bioSection3 = `Joel graduated from the Fashion Institute of Technology and attended the Art Students League. He started his career by doing fashion illustrations and advertisements, later on his work would appear in children’s books, magazines, and newspapers. In 1990, Joel Spector moved to New Milford, Connecticut with his wife, Rowena, where they would raise their four children. He received his MFA at Western Connecticut State University in 2005.`;
 	const bioSection4 = `As his artistic ability grew, he focused his career in portraiture and oil painting, and taught his craft at the Art League of Long Island and the Pastel Society of America. He was a member of the Painting Group of Manhattan, studied under Aaron Shikler and David Levine. Joel died on October 13, 2016. His art was a constant search for love, humanity, and compassion.`;
 
-
 	// the following bioSectionNPhotos arrays are divided by which thumbnail-carousel component it will be included in
 	const bioSection1Photos = [
 		{
@@ -17,6 +16,13 @@ const About = () => {
 			alt: 'Joel with gun',
 			caption: 'Joel with gun',
 		},
+		// {
+		// 	src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/joel-dorana.JPG',
+		// 	thumbnail:
+		// 		'https://jspect.s3.amazonaws.com/artwork-hi-res/joel-dorana.JPG',
+
+		// 	alt: 'Joel with Sister',
+		// },
 	];
 
 	const bioSection2Photos = [
@@ -24,7 +30,6 @@ const About = () => {
 			src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/joel-dorana.JPG',
 			thumbnail:
 				'https://jspect.s3.amazonaws.com/artwork-hi-res/joel-dorana.JPG',
-
 			alt: 'Joel with Sister',
 		},
 	];
@@ -35,6 +40,12 @@ const About = () => {
 			thumbnail:
 				'https://jspect.s3.amazonaws.com/artwork-hi-res/joel-father.JPG',
 			alt: 'Joel with baby',
+		},
+		{
+			src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/joel-profile.JPG',
+			// thumbnail:
+			// 	'https://jspect.s3.amazonaws.com/artwork-hi-res/joel-profile.JPG',
+			// alt: 'Joel Older Profile View',
 		},
 	];
 
@@ -56,12 +67,12 @@ const About = () => {
 		},
 		{
 			src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover1.png',
-			thumbnail: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover1.png',
+			// thumbnail: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover1.png',
 			alt: '',
 		},
 		{
 			src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover3.png',
-			thumbnail: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover3.png',
+			// thumbnail: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover3.png',
 			alt: '',
 		},
 		{
@@ -121,14 +132,14 @@ const About = () => {
 		{
 			src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/joel-munsel-3.jpg',
 			// thumbnail:
-				// 'https://jspect.s3.amazonaws.com/artwork-hi-res/joel-munsel-3.jpg',
+			// 'https://jspect.s3.amazonaws.com/artwork-hi-res/joel-munsel-3.jpg',
 
 			alt: '',
 		},
 		{
 			src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/joel%2Bwallach.jpg',
-			thumbnail:
-				'https://jspect.s3.amazonaws.com/artwork-hi-res/joel%2Bwallach.jpg',
+			// thumbnail:
+			// 	'https://jspect.s3.amazonaws.com/artwork-hi-res/joel%2Bwallach.jpg',
 
 			alt: '',
 		},
@@ -155,8 +166,8 @@ const About = () => {
 		},
 		{
 			src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/oaj-at-nac.jpg',
-			thumbnail:
-				'https://jspect.s3.amazonaws.com/artwork-hi-res/oaj-at-nac.jpg',
+			// thumbnail:
+			// 	'https://jspect.s3.amazonaws.com/artwork-hi-res/oaj-at-nac.jpg',
 
 			alt: '',
 		},
@@ -167,86 +178,29 @@ const About = () => {
 			<div className='about-title'>About the Artist</div>
 			<section className='about-bio-section'>
 				<p className='about-bio-section-text'>{bioSection1}</p>
-				<div
-					style={{
-						display: 'block',
-						minHeight: '1px',
-						width: '300px',
-						margin: '0 2rem',
-						padding: '2vmin',
-						background: 'lightgrey',
-						borderRadius: '5vmin',
-					}}>
-					<Gallery images={bioSection1Photos} enableImageSelection={false} />{' '}
-				</div>
+				<Gallery images={bioSection1Photos} enableImageSelection={false} />{' '}
 			</section>
 			<section className='about-bio-section'>
-				<div
-					style={{
-						display: 'block',
-						minHeight: '1px',
-						width: '300px',
-						margin: '0 2rem',
-						padding: '2vmin',
-						background: 'lightgrey',
-						borderRadius: '5vmin',
-					}}>
-					<Gallery images={bioSection2Photos} enableImageSelection={false} />{' '}
-				</div>
 				<p className='about-bio-section-text'>{bioSection2}</p>{' '}
+				<Gallery images={bioSection2Photos} enableImageSelection={false} />{' '}
 			</section>
 			<section className='about-bio-section'>
 				<p className='about-bio-section-text'>{bioSection3}</p>
-				<div
-					style={{
-						display: 'block',
-						minHeight: '1px',
-						width: '300px',
-						margin: '0 2rem',
-						padding: '2vmin',
-						background: 'lightgrey',
-						borderRadius: '5vmin',
-					}}>
-					<Gallery images={bioSection3_1Photos} enableImageSelection={false} />{' '}
-				</div>
+				<Gallery
+					images={bioSection3_1Photos}
+					enableImageSelection={false}
+				/>{' '}
 			</section>
-			<div
-				style={{
-					display: 'block',
-					minHeight: '1px',
-					width: '55vw',
-					margin: '0 auto',
-					padding: '2vmin',
-					borderRadius: '5vmin',
-				}}>
-				<Gallery images={bioSection3_3Photos} enableImageSelection={false} />{' '}
-			</div>
 			<section className='about-bio-section'>
-				<div
-					style={{
-						display: 'block',
-						minHeight: '1px',
-						width: '300px',
-						margin: '0 2rem',
-						padding: '2vmin',
-						background: 'lightgrey',
-						borderRadius: '5vmin',
-					}}>
-					<Gallery images={bioSection3_2Photos} enableImageSelection={false} />{' '}
-				</div>
 				<p className='about-bio-section-text'>{bioSection4}</p>{' '}
+				{/* <div className='multiple-galleries-container'> */}
+				<Gallery
+					images={bioSection3_3Photos}
+					enableImageSelection={false}
+				/>{' '}
+				<Gallery images={bioSection4Photos} enableImageSelection={false} />{' '}
+				{/* </div> */}
 			</section>
-				<div
-			style={{
-			display: 'block',
-			minHeight: '1px',
-			width: '55vw',
-			margin: '0 auto',
-			padding: '2vmin',
-			borderRadius: '5vmin',
-			}}>
-			<Gallery images={bioSection4Photos} enableImageSelection={false} />{' '}
-			</div>
 		</div>
 	);
 };

@@ -466,6 +466,10 @@ main {
 	justify-content: center;
 }
 
+.sign-in-error {
+	text-align: center;
+}
+
 /* 
 ///////////////////////////////
 //////////// About ////////////
@@ -486,10 +490,14 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 0 1.5vmin;
 }
 
-#about-grid-section {
-	display: grid;
+.about-bio-section * {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 300px;
 }
 
 .about-bio-section-text {
@@ -497,12 +505,10 @@ main {
 	padding: 1rem;
 	font-family: arial;
 	font-weight: 400;
-	font-size: 2.5vmin;
+	font-size: 1.5rem;
 	letter-spacing: 0.1vmin;
 	text-indent: 8%;
 }
-
-
 
 /* 
 ///////////////////////////////
@@ -546,6 +552,13 @@ main {
 }
 
 @media only screen and (max-width: 1000px) {
+	.about-bio-section {
+		display: grid;
+		text-align: center;
+	}
+	.about-bio-section * {
+		min-height: 10px;
+	}
 	.subnav-left > a,
 	.subnav-right > a {
 		font-size: 1rem;
@@ -554,12 +567,6 @@ main {
 	.size-inputs-labels {
 		display: grid;
 	}
-}
-
-@media only screen and (max-width: 660) {
-	/* #footer-title {
-		text-align: center;
-	} */
 }
 
 @media only screen and (max-width: 765px) {
@@ -572,6 +579,10 @@ main {
 	.logged-in {
 		font-size: 1rem;
 	}
+	/* .about-bio-section-text {
+		display: grid;
+		font-size: 1rem;
+	} */
 }
 
 @media only screen and (max-width: 600px) {
