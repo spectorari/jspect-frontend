@@ -189,7 +189,7 @@ const SignUp = (props) => {
 					name='password'
 					label='Password'
 					icon='lock'
-					type='text'
+					type='password'
 					onChange={handleChange}
 				/>
 				<MDBInput
@@ -245,7 +245,7 @@ const SignUp = (props) => {
 					</p>
 				)}
 				{!validPasswordCheck && submit && (
-					<p style={{textAlign: 'center'}} id='invalid'>
+					<p style={{ textAlign: 'center' }} id='invalid'>
 						Please edit your password to meet the requirements.
 					</p>
 				)}
