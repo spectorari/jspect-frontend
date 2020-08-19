@@ -25,10 +25,10 @@ const App = () => {
 	const [error, setError] = useState(false);
 	const [token, setToken] = useState('');
 
-	// when a user signs out, the state of token and the token in localStorage both need to be cleared on sign out
+	// when a user signs out, the state of token and the token in sessionStorage both need to be cleared on sign out
 	async function handleSignOut() {
 		setToken(null);
-		localStorage.removeItem('token');
+		sessionStorage.removeItem('token');
 	}
 
 	// some components should be rendered with the viewport starting at the top

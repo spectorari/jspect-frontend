@@ -92,7 +92,7 @@ const ArtworkDetail = (props) => {
 				method: 'DELETE',
 				headers: {
 					'Content-Type': 'application/json',
-					Authorization: `Bearer ${localStorage.getItem('token')}`,
+					Authorization: `Bearer ${sessionStorage.getItem('token')}`,
 					Accept: 'application/json',
 				},
 			})
@@ -194,7 +194,7 @@ const ArtworkDetail = (props) => {
 							onClick={goBack}>
 							Go Back
 						</button> */}
-						{props.token || localStorage.getItem('token') ? (
+						{props.token || sessionStorage.getItem('token') ? (
 							<Link
 								className='btn btn-info item'
 								to={`/artwork/${artworkId}/edit`}
@@ -202,7 +202,7 @@ const ArtworkDetail = (props) => {
 								Update Artwork Information
 							</Link>
 						) : null}{' '}
-						{props.token || localStorage.getItem('token') ? (
+						{props.token || sessionStorage.getItem('token') ? (
 							<button onClick={onDeleteArtwork} className='btn btn-danger item'>
 								Delete This Work
 							</button>

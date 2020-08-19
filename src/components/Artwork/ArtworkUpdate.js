@@ -69,7 +69,7 @@ const ArtworkUpdate = (props) => {
             method: 'PUT',
 			headers: {
                 'Content-type': 'application/json; charset=utf-8',
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`,
 			},
 			body: JSON.stringify(artwork),
 		})
@@ -94,7 +94,7 @@ const ArtworkUpdate = (props) => {
 					return <ArtworkCategoryNav />;
 				}}
 			/>
-			{props.token || localStorage.getItem('token') ? (
+			{props.token || sessionStorage.getItem('token') ? (
 				<main className='artwork-form-container'>
 					<h1 id='artwork-form-heading-text'>
 						Update Artwork id: {artwork.id}

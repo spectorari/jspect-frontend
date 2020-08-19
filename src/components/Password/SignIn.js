@@ -19,13 +19,15 @@ const SignIn = (props) => {
 		// eslint-disable-next-line
 	}, []);
 
-
 	const handleChange = (e) => {
 		e.persist();
-		setUser({ ...user, [e.target.name]: e.target.value });
+		setUser({
+			...user,
+			[e.target.name]: e.target.value,
+		});
 	};
 
-	// POST request to /login to request a user token; save the token for user priveleges in other components
+	// POST request to /login to request a user token; save the token for user privileges in other components
 	const signIn = (e) => {
 		e.preventDefault();
 		setSubmit(true);
@@ -40,7 +42,7 @@ const SignIn = (props) => {
 			.then((token) => {
 				if (token) {
 					props.setToken(token);
-					localStorage.setItem('token', token);
+					// sessionStorage.setItem('token', token);
 					setRedirectToReferrer(true);
 				} else {
 					setSignInError(true);
@@ -51,7 +53,7 @@ const SignIn = (props) => {
 
 	if (redirectToReferrer) {
 		// redirect to user if there is user detail page
-			// return <Redirect to='/user' />;
+		// return <Redirect to='/user' />;
 		return <Redirect to='/' />;
 	}
 
@@ -80,7 +82,9 @@ const SignIn = (props) => {
 					</MDBBtn>
 				</div>
 				<Link to='/signup'>
-					<p className='sign-in-text' id='sign-in-toggle'>Don't have an account? Click here to sign up.</p>
+					<p className='sign-in-text' id='sign-in-toggle'>
+						Don't have an account? Click here to sign up.
+					</p>
 				</Link>
 				{signInError && submit ? (
 					<p className='sign-in-error'>

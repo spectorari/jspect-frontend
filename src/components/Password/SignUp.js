@@ -43,17 +43,19 @@ const SignUp = (props) => {
 	const checkPassword = (e) => {
 		e.preventDefault();
 		setSubmit(true);
-		user.password === user.passwordConfirm ? setValid(true) : setValid(false);
-		user.adminPassword === process.env.REACT_APP_ADMIN_KEY
-			? setAdminValid(true)
-			: setAdminValid(false);
-		if (
-			user.adminPassword === process.env.REACT_APP_ADMIN_KEY &&
-			user.password === user.passwordConfirm
-		) {
-			setAdminValid(true);
-			setValid(true);
-			handleSubmit();
+		if (validPasswordCheck) {
+			user.password === user.passwordConfirm ? setValid(true) : setValid(false);
+			user.adminPassword === process.env.REACT_APP_ADMIN_KEY
+				? setAdminValid(true)
+				: setAdminValid(false);
+			if (
+				user.adminPassword === process.env.REACT_APP_ADMIN_KEY &&
+				user.password === user.passwordConfirm
+			) {
+				setAdminValid(true);
+				setValid(true);
+				handleSubmit();
+			}
 		}
 	};
 
@@ -88,6 +90,35 @@ const SignUp = (props) => {
 		return <Redirect to='/signin' />;
 	}
 
+	function isValidSpecialChars(str) {
+		return /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g.test(str);
+	}
+	function isValidUppercase(str) {
+		return /[A-Z]/g.test(str);
+	}
+	function isValidLowercase(str) {
+		return /[a-z]/g.test(str);
+	}
+	function isValidNumbers(str) {
+		return /[0-9]/g.test(str);
+	}
+	function isValidLength(str) {
+		return str.length > 7;
+	}
+	function isValidNoSpaces(str) {
+		return /[ ]/g.test(str);
+	}
+
+	let validPasswordCheck =
+		isValidSpecialChars(user.password) &&
+		!isValidNoSpaces(user.password) &&
+		isValidUppercase(user.password) &&
+		isValidLowercase(user.password) &&
+		isValidLength(user.password) &&
+		isValidNumbers(user.password)
+			? true
+			: false;
+
 	return (
 		<div className='loggin-container'>
 			<form onSubmit={checkPassword} className='sign-in-form'>
@@ -99,12 +130,66 @@ const SignUp = (props) => {
 					icon='user'
 					onChange={handleChange}
 				/>
+				<p className='password-must-contain'>Password must:</p>
+				<li
+					id={
+						isValidSpecialChars(user.password) ? 'valid-password' : 'invalid'
+					}>
+					contain a special character.
+					<span
+						id={
+							isValidSpecialChars(user.password) ? 'valid-password' : 'valid'
+						}>
+						{' '}
+						✓
+					</span>
+				</li>
+				<li id={isValidUppercase(user.password) ? 'valid-password' : 'invalid'}>
+					contain an uppercase letter.
+					<span
+						id={isValidUppercase(user.password) ? 'valid-password' : 'valid'}>
+						{' '}
+						✓
+					</span>
+				</li>
+				<li id={isValidLowercase(user.password) ? 'valid-password' : 'invalid'}>
+					contain a lowercase letter.
+					<span
+						id={isValidLowercase(user.password) ? 'valid-password' : 'valid'}>
+						{' '}
+						✓
+					</span>
+				</li>
+				<li id={isValidNumbers(user.password) ? 'valid-password' : 'invalid'}>
+					contain a number.
+					<span id={isValidNumbers(user.password) ? 'valid-password' : 'valid'}>
+						{' '}
+						✓
+					</span>
+				</li>
+
+				<li id={isValidLength(user.password) ? 'valid-password' : 'invalid'}>
+					be at least 8 characters long.
+					<span id={isValidLength(user.password) ? 'valid-password' : 'valid'}>
+						{' '}
+						✓
+					</span>
+				</li>
+				<li id={isValidNoSpaces(user.password) ? 'invalid' : 'valid-password'}>
+					not contain spaces.
+					<span
+						id={isValidNoSpaces(user.password) ? 'valid' : 'valid-password'}>
+						{' '}
+						✓
+					</span>
+				</li>
+
 				<MDBInput
 					required
 					name='password'
 					label='Password'
 					icon='lock'
-					type='password'
+					type='text'
 					onChange={handleChange}
 				/>
 				<MDBInput
@@ -118,7 +203,6 @@ const SignUp = (props) => {
 				<p className='sign-in-text' id='admin-container-label'>
 					Are you Signing up as an Administrator?
 				</p>
-
 				<select
 					required
 					className='form-input'
@@ -131,7 +215,6 @@ const SignUp = (props) => {
 					<option>Yes</option>
 					<option>No</option>
 				</select>
-
 				{dropdownResult}
 				<br />
 				<div className='sign-in-submit-button-container'>
@@ -139,13 +222,11 @@ const SignUp = (props) => {
 						Sign Up
 					</MDBBtn>
 				</div>
-
 				<Link to='/signin'>
 					<p className='sign-in-text' id='sign-in-toggle'>
 						Already have an account? Click here to sign in.
 					</p>
 				</Link>
-
 				{submit && (
 					<p className='sign-in-text' id={valid ? 'valid' : 'invalid'}>
 						{valid ? null : 'Passwords Must Match'}
@@ -159,7 +240,13 @@ const SignUp = (props) => {
 				)}
 				{error && (
 					<p className='sign-up-error'>
-						That username has been taken already. Please choose a different one.
+						Sorry, there was a problem. Please try again or choose a different
+						username.
+					</p>
+				)}
+				{!validPasswordCheck && submit && (
+					<p style={{textAlign: 'center'}} id='invalid'>
+						Please edit your password to meet the requirements.
 					</p>
 				)}
 			</form>

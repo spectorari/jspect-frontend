@@ -51,7 +51,7 @@ const ArtworkCreate = (props) => {
             method: 'POST',
 			headers: {
                 'Content-type': 'application/json; charset=utf-8',
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`,
 			},
 			body: JSON.stringify(artwork),
 		})
@@ -144,7 +144,7 @@ const ArtworkCreate = (props) => {
 					return <ArtworkCategoryNav />;
 				}}
 			/>
-			{props.token || localStorage.getItem('token') ? (
+			{props.token || sessionStorage.getItem('token') ? (
 				<main className='artwork-form-container'>
 					<h1 id='artwork-form-heading-text'>Add Artwork</h1>
 					<p className='artwork-form-subheading'>

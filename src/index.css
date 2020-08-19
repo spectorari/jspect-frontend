@@ -13,6 +13,7 @@ body {
 
 main {
 	padding-top: 1rem;
+	min-height: 100vh;
 }
 
 /* 
@@ -91,7 +92,7 @@ main {
 #navbar,
 .nav-caption {
 	font-family: 'Ubuntu';
-	font-size: 2vmin;
+	font-size: 1rem;
 }
 
 .nav-caption {
@@ -397,12 +398,26 @@ main {
 //////////////////////////////////////
  */
 
+/* #valid-password, #invalid {
+	text-align: center
+} */
+
 #valid {
 	display: none;
 }
 
 #invalid {
 	color: red;
+}
+
+#valid-password {
+	color: green;
+}
+
+.password-must-contain {
+	font-family: 'ubuntu';
+	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
 .logged-in {
@@ -466,7 +481,7 @@ main {
 	justify-content: center;
 }
 
-.sign-in-error {
+.sign-up-error {
 	text-align: center;
 }
 

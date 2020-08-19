@@ -56,7 +56,7 @@ const ArtworkCategoryNav = (props) => (
 				}>
 				All Works
 			</Link>
-			{props.token || localStorage.getItem('token') ? (
+			{props.token || sessionStorage.getItem('token') ? (
 				<Link
 					to='/artwork-create'
 					className={

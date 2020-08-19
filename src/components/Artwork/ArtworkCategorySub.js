@@ -19,7 +19,7 @@ const ArtworkSubcategory = (props) => {
 			headers: {
 				'Content-Type': 'application/json',
 				Accept: 'application/json',
-				// Authorization: `Bearer ${localStorage.getItem('token')}`,
+				// Authorization: `Bearer ${sessionStorage.getItem('token')}`,
 			},
 		})
 			.then((response) => response.json())
@@ -95,6 +95,20 @@ const ArtworkSubcategory = (props) => {
 		}
 	);
 
+	const artworkCategories = [
+		'portraits',
+		'paintings',
+		'silverpoint',
+		'works_on_paper',
+	];
+
+	let categorySubheadingInput = window.location.href.split('/')[
+		window.location.href.split('/').length - 1
+	];
+
+	let categorySubheading = props.toTitleCase(categorySubheadingInput);
+
+	console.log(thisCategory);
 	return (
 		<div className='artwork-subcat-container'>
 			<Route
@@ -104,11 +118,9 @@ const ArtworkSubcategory = (props) => {
 				}}
 			/>
 			<h1 className='artwork-category-heading'>
-				{props.toTitleCase(
-					window.location.href.split('/')[
-						window.location.href.split('/').length - 1
-					]
-				)}
+				{artworkCategories.indexOf(categorySubheadingInput) !== -1
+					? categorySubheading
+					: '-- Artwork Category Not Found --'}
 			</h1>
 			{artworkCategoryGallery}
 		</div>

@@ -75,7 +75,7 @@ const Navbar = (props) => {
 											All Works
 										</Link>
 									</MDBDropdownItem>{' '}
-									{props.token || localStorage.getItem('token') ? (
+									{props.token || sessionStorage.getItem('token') ? (
 										<MDBDropdownItem>
 											<Link id='dropdown-links' to='/artwork-create'>
 												Add (+)
@@ -90,7 +90,7 @@ const Navbar = (props) => {
 						<MDBNavLink to='/about'>About the Artist</MDBNavLink>
 					</MDBNavItem>
 					<MDBNavItem onClick={toggleCollapse}>
-						{props.token || localStorage.getItem('token') ? (
+						{props.token || sessionStorage.getItem('token') ? (
 							<MDBNavLink to='/' onClick={props.handleSignOut}>
 								Sign Out
 							</MDBNavLink>
@@ -101,7 +101,7 @@ const Navbar = (props) => {
 				</MDBNavbarNav>
 				<MDBNavbarNav right>
 					<MDBNavItem>
-						{props.token || localStorage.getItem('token') ? (
+						{props.token || sessionStorage.getItem('token') ? (
 							<h3 className='logged-in'>Logged in as Admin</h3>
 						) : null}
 					</MDBNavItem>
