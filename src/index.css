@@ -450,7 +450,8 @@ main {
 	width: 60vw;
 }
 
-.sign-in-text {
+.sign-in-text,
+.sign-in-error {
 	text-align: center;
 	margin: 0.5rem;
 }
@@ -502,7 +503,7 @@ main {
 }
 
 .about-bio-section {
-	display: flex;
+	display: block;
 	align-items: center;
 	justify-content: center;
 	padding: 0 1.5vmin;
@@ -512,12 +513,13 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-height: 300px;
+	min-height: 35vmin;
+	margin: 0;
+	padding: 0;
 }
 
 .about-bio-section-text {
-	margin: 1rem;
-	padding: 1rem;
+	margin: 0;
 	font-family: arial;
 	font-weight: 400;
 	font-size: 1.5rem;
@@ -572,7 +574,10 @@ main {
 		text-align: center;
 	}
 	.about-bio-section * {
-		min-height: 10px;
+		/* min-height: 10px; */
+	}
+	.about-bio-section-text {
+		margin: 1rem 0;
 	}
 	.subnav-left > a,
 	.subnav-right > a {

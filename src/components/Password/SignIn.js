@@ -42,7 +42,7 @@ const SignIn = (props) => {
 			.then((token) => {
 				if (token) {
 					props.setToken(token);
-					// sessionStorage.setItem('token', token);
+					sessionStorage.setItem('token', token);
 					setRedirectToReferrer(true);
 				} else {
 					setSignInError(true);
