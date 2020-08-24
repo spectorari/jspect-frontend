@@ -60,9 +60,14 @@ const About = () => {
 
 	const bioSection3_3Photos = [
 		{
+			src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover5.png',
+			thumbnail: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover5.png',
+			alt: '',
+		},
+		{
 			src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/CaptainMorgan.jpg',
-			thumbnail:
-				'https://jspect.s3.amazonaws.com/artwork-hi-res/CaptainMorgan.jpg',
+			// thumbnail:
+			// 	'https://jspect.s3.amazonaws.com/artwork-hi-res/CaptainMorgan.jpg',
 			alt: '',
 		},
 		{
@@ -78,11 +83,6 @@ const About = () => {
 		{
 			src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover4.png',
 			// thumbnail: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover4.png',
-			alt: '',
-		},
-		{
-			src: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover5.png',
-			// thumbnail: 'https://jspect.s3.amazonaws.com/artwork-hi-res/Cover5.png',
 			alt: '',
 		},
 		{
@@ -187,19 +187,14 @@ const About = () => {
 			<section className='about-bio-section'>
 				<p className='about-bio-section-text'>{bioSection3}</p>
 				<Gallery
-					images={bioSection3_1Photos}
-					enableImageSelection={false}
-				/>{' '}
-			</section>
-			<section className='about-bio-section'>
-				<p className='about-bio-section-text'>{bioSection4}</p>{' '}
-				{/* <div className='multiple-galleries-container'> */}
-				<Gallery
 					images={bioSection3_3Photos}
 					enableImageSelection={false}
 				/>{' '}
+				<Gallery images={bioSection3_1Photos} enableImageSelection={false} />{' '}
+			</section>
+			<section className='about-bio-section'>
+				<p className='about-bio-section-text'>{bioSection4}</p>{' '}
 				<Gallery images={bioSection4Photos} enableImageSelection={false} />{' '}
-				{/* </div> */}
 			</section>
 		</div>
 	);

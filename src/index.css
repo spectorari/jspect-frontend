@@ -509,17 +509,31 @@ main {
 	padding: 0 1.5vmin;
 }
 
-.about-bio-section * {
+.about-bio-section #ReactGridGallery {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-height: 35vmin;
-	margin: 0;
-	padding: 0;
+	margin: 1rem;
+	height: 40vmin;
+}
+
+.about-bio-section #ReactGridGallery div {
+	display: block;
+	align-items: center;
+	justify-content: center;
+}
+.about-bio-section #ReactGridGallery div div {
+	display: inline;
+	align-items: center;
+	justify-content: center;
+}
+
+.about-bio-section #ReactGridGallery div div img {
+	min-height: 40vmin;
 }
 
 .about-bio-section-text {
-	margin: 0;
+	margin: 1rem;
 	font-family: arial;
 	font-weight: 400;
 	font-size: 1.5rem;
