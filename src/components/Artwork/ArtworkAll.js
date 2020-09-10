@@ -92,14 +92,13 @@ const ArtworkAll = (props) => {
 				<h1 id='all-artwork-heading-text'>All Works</h1>
 				<div className='artwork-all-table'>
 					<MDBDataTableV5
+						data={data}
 						hover
 						striped
-						bordered
 						fixed
 						entriesOptions={[10, 25, 50, 75, 100]}
-						data={data}
 						fullPagination
-						pagingTop
+						// pagingTop
 						searchTop
 						searchBottom={false}
 						order={['title', 'asc']}
