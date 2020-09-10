@@ -34,7 +34,7 @@ main {
 	top: 4vh;
 }
 
-.home-artist-statement-caption {
+.caption {
 	margin-top: 4vh;
 	padding: 2vmin 4vmin;
 }
@@ -43,12 +43,18 @@ main {
 	display: grid;
 	align-items: center;
 	justify-content: center;
+	margin: 2rem 0;
+}
+
+.home-artist-statement-caption {
+	font-family: 'ubuntu';
 }
 
 .home-artist-statement {
 	text-indent: 2.5rem;
 	padding: 0 4vmin;
 	max-width: 80vw;
+	line-height: 4rem;
 }
 
 .home-statement-signature {
@@ -617,6 +623,11 @@ main {
 		display: grid;
 		font-size: 1rem;
 	} */
+	.home-artist-statement-container,
+	.home-artist-statement {
+		text-align: center;
+		text-indent: 0;
+	}
 }
 
 @media only screen and (max-width: 600px) {
