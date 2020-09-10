@@ -167,7 +167,7 @@ const ArtworkDetail = (props) => {
 						<h4 className='artwork-detail-description'>
 							{artwork.description}
 						</h4>
-						{/* {artworkIds.indexOf(thisArtworkId) > 0 ? (
+						{artworkIds.indexOf(thisArtworkId) > 0 ? (
 							<Link
 								to={`/artwork/${
 									artworkIds[artworkIds.indexOf(thisArtworkId) - 1]
@@ -184,7 +184,7 @@ const ArtworkDetail = (props) => {
 								onClick={artworkRefresh}>
 								<FaArrowRight className='detail-pointer-arrow' />
 							</Link>
-						) : null}{' '} */}
+						) : null}{' '}
 					</div>
 
 					<div className='artwork-detail-buttons-container'>

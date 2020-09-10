@@ -10,18 +10,18 @@ const FooterPage = () => {
 						<h4
 							className='title'
 							id='footer-title'
-							// style={{ textAlign: 'center', fontFamily: 'ubuntu' }}
+							style={{ textAlign: 'center', fontFamily: 'ubuntu' }}
 							>
 							Joel Spector
 						</h4>
 						<h6 
 						id='footer-title' 
-						// style={{ textAlign: 'center' }}
+						style={{ textAlign: 'center' }}
 						>
 							1949 - 2016
 						</h6>
 					</MDBCol>
-					<MDBCol md='6'>
+					{/* <MDBCol md='6'>
 						<img
 							src='https://jspect.s3.amazonaws.com/artwork-hi-res/signature.jpg'
 							alt='signature'
@@ -32,7 +32,7 @@ const FooterPage = () => {
 								textAlign: 'right',
 							}}
 						/>
-					</MDBCol>
+					</MDBCol> */}
 				</MDBRow>
 			</MDBContainer>
 			<div className='footer-copyright text-center py-3'>

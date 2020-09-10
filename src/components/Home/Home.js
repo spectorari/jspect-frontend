@@ -13,7 +13,16 @@ const Home = () => {
 				<h2 className='home-artist-statement-caption'>Artist Statement</h2>
 				<p className='home-artist-statement'>
 					{artistStatementHome}{' '}
-					<p className='home-statement-signature'>Joel Spector</p>
+					<img
+							src='https://jspect.s3.amazonaws.com/artwork-hi-res/signature.jpg'
+							alt='signature'
+							style={{
+								width: '200px',
+								borderRadius: '25px',
+								marginBottom: '1rem',
+								textAlign: 'center',
+							}}
+						/>
 				</p>
 			</div>
 		</div>
