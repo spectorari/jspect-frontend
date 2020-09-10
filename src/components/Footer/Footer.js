@@ -10,14 +10,10 @@ const FooterPage = () => {
 						<h4
 							className='title'
 							id='footer-title'
-							style={{ textAlign: 'center', fontFamily: 'ubuntu' }}
-							>
+							style={{ textAlign: 'center', fontFamily: 'ubuntu' }}>
 							Joel Spector
 						</h4>
-						<h6 
-						id='footer-title' 
-						style={{ textAlign: 'center' }}
-						>
+						<h6 id='footer-title' style={{ textAlign: 'center' }}>
 							1949 - 2016
 						</h6>
 					</MDBCol>
@@ -44,7 +40,15 @@ const FooterPage = () => {
 						rel='noopener noreferrer'>
 						{' '}
 						Ari Spector{' '}
-					</a>
+					</a>{' '}
+					&{' '}
+					<a
+						href='https://www.linkedin.com/in/williamhkaufman/'
+						target='_blank'
+						rel='noopener noreferrer'>
+						{' '}
+						Billy Kaufman{' '}
+					</a>{' '}
 				</MDBContainer>
 			</div>
 		</MDBFooter>

@@ -99,6 +99,7 @@ const ArtworkAll = (props) => {
 						entriesOptions={[10, 25, 50, 75, 100]}
 						fullPagination
 						// pagingTop
+						// pagingBottom={false}
 						searchTop
 						searchBottom={false}
 						order={['title', 'asc']}

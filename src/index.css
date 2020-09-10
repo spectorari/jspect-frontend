@@ -191,6 +191,25 @@ main {
 ////////////////////////////
  */
 
+.artwork-all-table {
+	/* text-align: center; */
+}
+
+.artwork-all-table input {
+	min-width: 20vmin;
+	text-align: center;
+	/* font-family: 'ubuntu'; */
+	font-weight: 500;
+	border: 1px solid black;
+	font-size: 1rem;
+	border-radius: .5ch;
+	transition: 1s;
+}
+
+.artwork-all-table input:focus {
+	background: rgba(255, 255, 255, 0.372);
+}
+
 .form-img {
 	height: 450px;
 	padding: 2rem 0;
